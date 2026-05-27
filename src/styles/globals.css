@@ -366,13 +366,12 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
   gap: 0.5rem;
   cursor: default;
   padding-bottom: 1.5rem;
 }
 
-/* Glassy gradient banner */
+/* Glassy gradient banner — decorative, does not affect flex layout */
 .team-card::before {
   content: '';
   position: absolute;
@@ -381,14 +380,12 @@ body {
   right: 0;
   height: 6rem;
   background: var(--card-gradient);
-  /* Glass edge highlights */
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.92),
     inset 0 -1px 0 rgba(255, 255, 255, 0.35),
     0 4px 16px rgba(0, 0, 0, 0.06);
   transition: height 500ms cubic-bezier(0.22, 1, 0.36, 1),
-              border-radius 500ms cubic-bezier(0.22, 1, 0.36, 1),
-              transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
+              border-radius 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 /* Glass specular shimmer layer */
@@ -432,19 +429,15 @@ body {
   transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Scale in-place — no position override */
 .team-card:hover .team-card__avatar {
-  transform: scale(1.15) translateY(-0.5rem);
+  transform: scale(1.08);
 }
 
 .team-card__text {
   z-index: 10;
   text-align: center;
   padding: 0 1.25rem;
-  transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.team-card:hover .team-card__text {
-  transform: translateY(-0.5rem);
 }
 
 .team-card__name {
@@ -479,6 +472,7 @@ body {
   opacity: 0.72;
 }
 
+/* Bio flows naturally in the flex column — no transform positioning */
 .team-card__bio {
   z-index: 10;
   font-family: var(--font-sans);
@@ -488,20 +482,18 @@ body {
   color: #111;
   text-align: center;
   padding: 0 1rem;
+  margin-top: 0.25rem;
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(6px);
   transition:
     max-height 400ms cubic-bezier(0.22, 1, 0.36, 1) 100ms,
-    opacity 350ms ease 130ms,
-    transform 350ms ease 130ms;
+    opacity 350ms ease 130ms;
 }
 
 .team-card:hover .team-card__bio {
   max-height: 6rem;
   opacity: 1;
-  transform: translateY(1.5rem);
 }
 
 /* ─── Cohort stats band ─── */
