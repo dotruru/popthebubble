@@ -34,7 +34,7 @@ export function TracksSection() {
             return (
               <div
                 key={track.index}
-                className="rounded-2xl overflow-hidden flex flex-col"
+                className="rounded-lg overflow-hidden flex flex-col"
                 style={{
                   background: a.cardBg,
                   border: `1px solid ${a.cardBorder}`,

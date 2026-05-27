@@ -13,7 +13,7 @@ export function FAQSection() {
         <h2 className="section-title mb-12">Questions.</h2>
 
         <div
-          className="glass glass--milk rounded-2xl overflow-hidden"
+          className="glass glass--milk rounded-lg overflow-hidden"
           style={{ padding: '0.5rem' }}
         >
           <Accordion type="single" collapsible className="w-full">

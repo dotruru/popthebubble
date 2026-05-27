@@ -11,7 +11,7 @@ export function GlassCard({ variant = 'default', className = '', children, ...pr
   return (
     <GlassSurface
       variant={variant}
-      className={`interactive-glass rounded-2xl p-8 ${className}`.trim()}
+      className={`interactive-glass rounded-lg p-8 ${className}`.trim()}
       {...props}
     >
       {children}

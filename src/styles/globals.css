@@ -361,7 +361,7 @@ body {
   width: 100%;
   min-height: 18rem;
   background: var(--cream);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -565,7 +565,7 @@ body {
 .timeline-card {
   background: rgb(248 243 232 / 0.62);
   border: 1px solid rgb(255 255 255 / 0.72);
-  border-radius: 1rem;
+  border-radius: 0.5rem;
   padding: 1.75rem;
   display: flex;
   flex-direction: column;

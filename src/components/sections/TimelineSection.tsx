@@ -8,7 +8,7 @@ const data = TIMELINE_STEPS.map((step, i) => ({
   dotColor: STEP_COLORS[i],
   content: (
     <div
-      className="rounded-xl px-5 py-4"
+      className="rounded-lg px-5 py-4"
       style={{
         background: 'rgba(248,243,232,0.58)',
         border: '1px solid rgba(255,255,255,0.68)',

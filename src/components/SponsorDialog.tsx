@@ -76,7 +76,7 @@ export function SponsorDialog({ children }: SponsorDialogProps) {
                 <button
                   key={tier.id}
                   onClick={() => handleSelect(tier)}
-                  className={`w-full text-left border rounded-xl p-4 transition-all group ${tier.borderClass}`}
+                  className={`w-full text-left border rounded-lg p-4 transition-all group ${tier.borderClass}`}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <div className="flex items-center gap-2">
