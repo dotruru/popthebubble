@@ -2,6 +2,11 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+/* Hide iOS/Safari native video controls so autoplay isn't blocked by the play button overlay */
+video::-webkit-media-controls { display: none !important; }
+video::-webkit-media-controls-enclosure { display: none !important; }
+video::-webkit-media-controls-panel { display: none !important; }
+
 @custom-variant dark (&:is(.dark *));
 
 /* ─── Font face ─── */

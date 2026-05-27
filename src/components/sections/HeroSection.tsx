@@ -31,7 +31,7 @@ export function HeroSection() {
           muted
           loop
           playsInline
-          preload="none"
+          preload="auto"
           poster="/hero-wide-poster.jpg"
         >
           <source src="https://pub-045a5053b3b642659d08f6f537fcd459.r2.dev/hero-wide-opt.mp4" type="video/mp4" />
@@ -44,7 +44,7 @@ export function HeroSection() {
           muted
           loop
           playsInline
-          preload="none"
+          preload="auto"
           poster="/hero-tall-poster.jpg"
         >
           <source src="https://pub-045a5053b3b642659d08f6f537fcd459.r2.dev/hero-tall-opt.mp4" type="video/mp4" />
