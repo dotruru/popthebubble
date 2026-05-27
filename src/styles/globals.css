@@ -800,17 +800,26 @@ body {
 /* ─── Footer grass ─── */
 .footer-grass {
   display: block;
-  width: 100%;
-  height: 320px;
-  background: #ffffff url('/footer_mobile.jpg') top center / cover no-repeat;
+  padding: 0;
+  margin: 0;
+  line-height: 0;
+  font-size: 0;
+  background: #ffffff;
 }
 
+.footer-grass__desktop,
+.footer-grass__mobile {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.footer-grass__desktop { display: none; }
+.footer-grass__mobile  { display: block; }
+
 @media (min-width: 768px) {
-  .footer-grass {
-    height: 420px;
-    background-image: url('/footer_desktop.jpg');
-    background-position: top center;
-  }
+  .footer-grass__desktop { display: block; }
+  .footer-grass__mobile  { display: none; }
 }
 
 
