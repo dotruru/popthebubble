@@ -105,7 +105,7 @@ export const TEAM = [
     name: 'Alramina Myrzabekova',
     role: 'Strategy & Partnerships',
     photo: '/team/alramina.png',
-    bio: 'EWOR Fellow. EY technology consultant — FTSE 100 clients. EF Hack alum.',
+    bio: 'EWOR Fellow. Ex EY-P consultant. 4x hackathon winner.',
   },
 ] as const
 

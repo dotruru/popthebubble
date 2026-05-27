@@ -1,4 +1,5 @@
 import { SiteHeader } from '@/components/layout/SiteHeader'
+import { FloatingBubbles } from '@/components/FloatingBubbles'
 import {
   HeroSection,
   MarqueeStrip,
@@ -16,6 +17,7 @@ export default function Home() {
       <SiteHeader />
       <HeroSection />
       <main className="page-after-hero">
+        <FloatingBubbles />
         <MarqueeStrip />
         <TracksSection />
         <CohortSection />
