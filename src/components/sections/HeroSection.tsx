@@ -34,7 +34,7 @@ export function HeroSection() {
           preload="none"
           poster="/hero-wide-poster.jpg"
         >
-          <source src="/hero-wide-opt.mp4" type="video/mp4" />
+          <source src="https://pub-045a5053b3b642659d08f6f537fcd459.r2.dev/hero-wide-opt.mp4" type="video/mp4" />
         </video>
         {/* Tall video (portrait/mobile) */}
         <video
@@ -47,7 +47,7 @@ export function HeroSection() {
           preload="none"
           poster="/hero-tall-poster.jpg"
         >
-          <source src="/hero-tall-opt.mp4" type="video/mp4" />
+          <source src="https://pub-045a5053b3b642659d08f6f537fcd459.r2.dev/hero-tall-opt.mp4" type="video/mp4" />
         </video>
       </div>
 
