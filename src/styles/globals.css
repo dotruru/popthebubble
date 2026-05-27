@@ -802,13 +802,14 @@ body {
   display: block;
   width: 100%;
   height: 320px;
-  background: #ffffff url('/footer_mobile.jpg') center bottom / cover no-repeat;
+  background: #ffffff url('/footer_mobile.jpg') top center / cover no-repeat;
 }
 
 @media (min-width: 768px) {
   .footer-grass {
     height: 420px;
     background-image: url('/footer_desktop.jpg');
+    background-position: top center;
   }
 }
 
