@@ -112,6 +112,18 @@ video::-webkit-media-controls-panel { display: none !important; }
 
 html {
   scroll-behavior: smooth;
+  /* iOS overscroll reveals html background — set grass image so it appears to continue */
+  background-image: url('/footer_mobile.jpg');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+  background-size: cover;
+  background-color: #3c7a1a;
+}
+
+@media (min-width: 768px) {
+  html {
+    background-image: url('/footer_desktop.jpg');
+  }
 }
 
 body {
@@ -806,6 +818,7 @@ body {
 .footer-grass {
   display: block;
   padding: 0;
+  padding-bottom: env(safe-area-inset-bottom);
   margin: 0;
   line-height: 0;
   font-size: 0;
