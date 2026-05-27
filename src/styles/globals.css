@@ -103,6 +103,23 @@ video::-webkit-media-controls-panel { display: none !important; }
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+/* ─── Bubble cursor ─── */
+@media (pointer: fine) {
+  html, a, button, [role="button"], label, select, input, textarea { cursor: none !important; }
+}
+
+.bubble-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+}
+
+@media (pointer: coarse) {
+  .bubble-cursor { display: none; }
+}
+
 /* ─── Base ─── */
 *,
 *::before,
