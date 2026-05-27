@@ -24,22 +24,7 @@ export function FooterLandscape() {
         </div>
       </section>
 
-      <footer className="footer-grass" aria-label="Footer" style={{ background: '#ffffff' }}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/footer_desktop.jpg"
-          alt=""
-          aria-hidden="true"
-          className="footer-grass__desktop"
-        />
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/footer_mobile.jpg"
-          alt=""
-          aria-hidden="true"
-          className="footer-grass__mobile"
-        />
-      </footer>
+      <footer className="footer-grass" aria-label="Footer" />
     </>
   )
 }
