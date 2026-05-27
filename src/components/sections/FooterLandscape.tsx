@@ -8,7 +8,7 @@ export function FooterLandscape() {
       <section className="footer-cta">
         <div className="container flex flex-col items-center text-center gap-8">
           <h2 className="section-title" style={{ color: 'var(--ink)' }}>
-            Ready to build?
+            Ready to pop?
           </h2>
 
           <div className="flex items-center gap-4 flex-wrap justify-center">
