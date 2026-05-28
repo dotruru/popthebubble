@@ -17,7 +17,12 @@ export function SiteHeader() {
   return (
     <header className="fixed top-0 inset-x-0 z-50" style={{ willChange: 'transform' }}>
       <div className="container flex items-center justify-between py-4">
-        <span className="meta text-white/90 tracking-widest">Hackhouse London</span>
+        <a
+          href={EVENT.producerHref}
+          className="meta text-white/90 hover:text-white tracking-widest transition-colors"
+        >
+          {EVENT.producer}
+        </a>
 
         <nav className="hidden md:flex items-center gap-6">
           {NAV_LINKS.map((link) => (

@@ -9,6 +9,7 @@ export const EVENT = {
   cohortSize: 80,
   acceptance: '~12%',
   duration: '36 hours',
+  producerHref: 'https://hackhouse.uk',
   applyHref: 'https://lu.ma/035ubxn3',
   sponsorHref: 'mailto:contact@hackhouse.uk',
 } as const
