@@ -125,22 +125,22 @@ export const TIMELINE_STEPS = [
   {
     index: '01',
     label: 'Apply',
-    detail: 'Rolling applications. Short form, no essay.',
+    detail: "A short form. No essay, no CV — just show us what you've built.",
   },
   {
     index: '02',
-    label: 'Confirmed',
-    detail: 'Decisions 5 days before the hackathon.',
+    label: 'Get approved',
+    detail: 'We review on a rolling basis and confirm 5 days before the event.',
   },
   {
     index: '03',
     label: 'Build',
-    detail: '5–7 June 2026, London. 36 hours.',
+    detail: '36 hours to build something real. 5–7 June, in London.',
   },
   {
     index: '04',
     label: 'Demo Day',
-    detail: 'Award ceremony. Register separately →',
+    detail: 'Show your work to the room and compete for the £10,000 first prize. Register on Luma →',
     href: 'https://luma.com/bi8t9jh8',
   },
 ] as const
