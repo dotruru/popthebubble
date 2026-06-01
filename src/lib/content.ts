@@ -126,6 +126,8 @@ export const TIMELINE_STEPS = [
     index: '01',
     label: 'Apply',
     detail: "A short form. No essay, no CV — just show us what you've built.",
+    href: EVENT.applyHref,
+    cta: 'Apply on Luma',
   },
   {
     index: '02',
@@ -140,8 +142,9 @@ export const TIMELINE_STEPS = [
   {
     index: '04',
     label: 'Demo Day',
-    detail: 'Show your work to the room and compete for the £10,000 first prize. Register on Luma →',
+    detail: 'Show your work to the room and compete for the £10,000 first prize.',
     href: 'https://luma.com/bi8t9jh8',
+    cta: 'Register on Luma',
   },
 ] as const
 
