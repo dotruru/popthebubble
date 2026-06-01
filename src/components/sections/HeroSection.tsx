@@ -68,7 +68,7 @@ export function HeroSection() {
 
         <p
           className="body-copy mt-6 mb-8 max-w-md"
-          style={{ color: 'rgba(255,255,255,0.9)', textShadow: '0 1px 8px rgba(0,0,0,0.32)' }}
+          style={{ color: 'rgba(255,255,255,0.95)', textShadow: '0 2px 4px rgba(0,0,0,0.45), 0 4px 18px rgba(0,0,0,0.55)' }}
         >
           the most high-signal hackathon in London. 5–7 June.
         </p>

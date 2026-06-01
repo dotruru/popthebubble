@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { GlassButton } from '@/components/primitives'
 import { Button } from '@/components/ui/button'
 import { EVENT } from '@/lib/content'
@@ -13,13 +13,34 @@ const NAV_LINKS = [
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  const navTextShadow = '0 1px 12px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.45)'
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50" style={{ willChange: 'transform' }}>
+    <header
+      className="fixed top-0 inset-x-0 z-50 transition-[background-color,backdrop-filter,box-shadow,border-color] duration-300 ease-out"
+      style={{
+        willChange: 'transform',
+        backgroundColor: scrolled ? 'rgba(16,24,40,0.42)' : 'transparent',
+        backdropFilter: scrolled ? 'blur(14px) saturate(140%)' : 'blur(0px)',
+        WebkitBackdropFilter: scrolled ? 'blur(14px) saturate(140%)' : 'blur(0px)',
+        boxShadow: scrolled ? '0 8px 30px rgba(0,0,0,0.28)' : 'none',
+        borderBottom: `1px solid ${scrolled ? 'rgba(255,255,255,0.12)' : 'transparent'}`,
+      }}
+    >
       <div className="container flex items-center justify-between py-4">
         <a
           href={EVENT.producerHref}
           className="meta text-white/90 hover:text-white tracking-widest transition-colors"
+          style={{ textShadow: navTextShadow }}
         >
           {EVENT.producer}
         </a>
@@ -30,6 +51,7 @@ export function SiteHeader() {
               key={link.href}
               href={link.href}
               className="meta text-white/80 hover:text-white transition-colors"
+              style={{ textShadow: navTextShadow }}
             >
               {link.label}
             </a>

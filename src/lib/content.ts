@@ -88,25 +88,29 @@ export const TEAM = [
     name: 'Aruzhan Nussipzhan',
     role: 'Lead Organiser',
     photo: '/team/aruzhan.jpeg',
-    bio: '9x hackathon wins. Ex-Palantir. Draper Fellow.',
+    bio: ['Draper Fellow', 'Ex-Palantir', '9× hackathon wins'],
+    linkedin: 'https://uk.linkedin.com/in/aruzhan-n',
   },
   {
     name: 'Lyndon Leong',
     role: 'Programme & Community',
     photo: '/team/lyndon.png',
-    bio: 'EWOR. Scaled a gaming co to 1M users. Led £60B AUM regulatory reconciliation.',
+    bio: ['EWOR Fellow', 'Scaled a gaming co to 1M users', 'Led £60B AUM regulatory reconciliation'],
+    linkedin: 'https://uk.linkedin.com/in/lyndon-leong-25b704b2',
   },
   {
     name: 'Lois Zhao',
     role: 'Operations & Partners',
     photo: '/team/lois.png',
-    bio: 'Founding engineer at Toma (YC, a16z) & Zephyr Cloud. Daytona consultant.',
+    bio: ['Founding engineer — Toma (YC, a16z) & Zephyr Cloud', 'Daytona consultant'],
+    linkedin: 'https://www.linkedin.com/in/loiszhao/',
   },
   {
     name: 'Alramina Myrzabekova',
     role: 'Strategy & Partnerships',
     photo: '/team/alramina.png',
-    bio: 'EWOR Fellow. Ex EY-P consultant. 4x hackathon winner.',
+    bio: ['EWOR Fellow', 'Ex EY-P consultant', '4× hackathon winner'],
+    linkedin: 'https://uk.linkedin.com/in/alramina-mz',
   },
 ] as const
 
@@ -142,9 +146,9 @@ export const TIMELINE_STEPS = [
 ] as const
 
 export const SPONSORS = [
-  { name: 'AccelerateMe', logo: '/sponsor_accelerateme/accelerateme.png', label: 'Founding Partner' },
-  { name: 'Mubit', logo: '/sponsor_mubit/Logo_Black_Only.svg', label: 'Founding Partner' },
-  { name: 'Standard Manufacturing Co.', logo: '/sponsor_standardmanufacturing/sponsor_standardmanufacturing.png', label: 'Founding Partner' },
+  { name: 'AccelerateMe', logo: '/sponsor_accelerateme/accelerateme.png', label: 'Sponsor' },
+  { name: 'Mubit', logo: '/sponsor_mubit/Logo_Black_Only.svg', label: 'Sponsor' },
+  { name: 'Standard Manufacturing Co.', logo: '/sponsor_standardmanufacturing/sponsor_standardmanufacturing.png', label: 'Sponsor' },
 ] as const
 
 export const FAQ_ITEMS = [

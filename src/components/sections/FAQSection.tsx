@@ -16,7 +16,7 @@ export function FAQSection() {
           className="glass glass--milk rounded-lg overflow-hidden"
           style={{ padding: '0.5rem' }}
         >
-          <Accordion type="single" collapsible className="w-full">
+          <Accordion type="multiple" className="w-full">
             {FAQ_ITEMS.map((item, i) => (
               <AccordionItem
                 key={i}
