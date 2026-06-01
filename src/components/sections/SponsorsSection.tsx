@@ -14,21 +14,14 @@ export function SponsorsSection() {
   return (
     <section className="section">
       <div className="container">
-        <h2 className="section-title mb-4">Partners.</h2>
+        <h2 className="section-title mb-4">Sponsors.</h2>
         <p className="body-copy mb-12" style={{ opacity: 0.6, maxWidth: '48ch' }}>
           The companies backing the builders.
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {SPONSORS.map((sponsor, i) => (
-            <GlassCard key={i} variant="milk" className="!p-6 flex flex-col gap-5 min-h-[9rem]">
-              <p
-                className="meta"
-                style={{ opacity: 0.4, fontFamily: 'var(--font-mono)', letterSpacing: '0.14em', fontSize: '0.65rem' }}
-              >
-                {sponsor.label.toUpperCase()}
-              </p>
-
+            <GlassCard key={i} variant="milk" className="!p-6 flex flex-col justify-center min-h-[9rem]">
               {sponsor.logo ? (
                 <div className="relative" style={{ height: 44, width: '100%' }}>
                   <Image

@@ -146,9 +146,9 @@ export const TIMELINE_STEPS = [
 ] as const
 
 export const SPONSORS = [
-  { name: 'AccelerateMe', logo: '/sponsor_accelerateme/accelerateme.png', label: 'Sponsor' },
-  { name: 'Mubit', logo: '/sponsor_mubit/Logo_Black_Only.svg', label: 'Sponsor' },
-  { name: 'Standard Manufacturing Co.', logo: '/sponsor_standardmanufacturing/sponsor_standardmanufacturing.png', label: 'Sponsor' },
+  { name: 'AccelerateMe', logo: '/sponsor_accelerateme/accelerateme.png' },
+  { name: 'Mubit', logo: '/sponsor_mubit/Logo_Black_Only.svg' },
+  { name: 'Standard Manufacturing Co.', logo: '/sponsor_standardmanufacturing/sponsor_standardmanufacturing.png' },
 ] as const
 
 export const FAQ_ITEMS = [
