@@ -36,7 +36,7 @@ export function SponsorsSection() {
                     alt={sponsor.name}
                     fill
                     sizes="180px"
-                    style={{ objectFit: 'contain', objectPosition: 'left center', filter: 'brightness(0)' }}
+                    style={{ objectFit: 'contain', objectPosition: 'center center', filter: 'brightness(0)' }}
                   />
                 </div>
               ) : (
