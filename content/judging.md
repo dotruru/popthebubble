@@ -114,7 +114,11 @@ Within a track, the three criteria always sum to **60**. The bonus is identical 
 ### Build in public — up to +12 pts
 - **+2** per substantive, dated public post that shows real progress
 - ~6 posts to reach the cap
-- Real moments beat polished marketing. Tag the event so we can amplify you.
+- Real moments beat polished marketing.
+- **Tag us to make it count.** Posts must tag the organisers so we can verify and amplify them — **Aruzhan first** (most likely to see and reshare), then the rest, then the sponsor accounts:
+  - Instagram: **@popthebubble.hack**
+  - X: [@arukanism](https://x.com/arukanism) · [@zmzlois](https://x.com/zmzlois) · [@Lantos1618](https://x.com/Lantos1618) · [@dimplnotsimpl](https://x.com/dimplnotsimpl)
+  - LinkedIn: [Aruzhan](https://uk.linkedin.com/in/aruzhan-n) · [Lyndon](https://uk.linkedin.com/in/lyndon-leong-25b704b2) · [Lois](https://www.linkedin.com/in/loiszhao) · [Alramina](https://uk.linkedin.com/in/alramina-mz)
 
 ### Meaningful Mubit SDK use — up to +10 pts
 - **up to +4** — bolted-on use

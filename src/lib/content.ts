@@ -209,6 +209,17 @@ export const LINKS = {
   email: 'mailto:contact@hackhouse.uk',
 } as const
 
+// ─── Socials — tag the organisers when you build in public (Aruzhan first; then sponsors) ───
+export const SOCIALS = {
+  instagram: { handle: '@popthebubble.hack', href: 'https://instagram.com/popthebubble.hack' },
+  organisers: [
+    { name: 'Aruzhan', xHandle: '@arukanism', x: 'https://x.com/arukanism', linkedin: 'https://uk.linkedin.com/in/aruzhan-n' },
+    { name: 'Lois', xHandle: '@zmzlois', x: 'https://x.com/zmzlois', linkedin: 'https://www.linkedin.com/in/loiszhao' },
+    { name: 'Lyndon', xHandle: '@Lantos1618', x: 'https://x.com/Lantos1618', linkedin: 'https://uk.linkedin.com/in/lyndon-leong-25b704b2' },
+    { name: 'Alramina', xHandle: '@dimplnotsimpl', x: 'https://x.com/dimplnotsimpl', linkedin: 'https://uk.linkedin.com/in/alramina-mz' },
+  ],
+} as const
+
 // ─── Day-by-day schedule (public-safe: hack venue intentionally unnamed) ───
 export const SCHEDULE = [
   {
@@ -462,7 +473,7 @@ export const JUDGING_BONUS = [
   {
     title: 'Build in public',
     points: 'up to +12',
-    detail: '+2 per substantive, dated public post during the hack, roughly 6 posts max. Real moments beat polished marketing.',
+    detail: '+2 per substantive, dated public post during the hack, roughly 6 posts max. Real moments beat polished marketing. Tag @popthebubble.hack and the organisers (Aruzhan first) so it counts and we can amplify you.',
   },
   {
     title: 'Mubit SDK',

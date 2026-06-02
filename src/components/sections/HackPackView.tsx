@@ -19,6 +19,7 @@ import {
   TRAVEL,
   WHAT_TO_BRING,
   HACK_FAQ,
+  SOCIALS,
 } from '@/lib/content'
 import { AIRTABLE_EMBEDS } from '@/lib/portal'
 import { AirtableEmbed } from '@/components/AirtableEmbed'
@@ -334,6 +335,29 @@ export function HackPackView() {
                 Public posts can also count toward the build-in-public bonus when they are dated,
                 substantive, and show real progress instead of polished marketing.
               </p>
+              <div className="mt-4 rounded-md" style={{ padding: '0.85rem', background: 'rgb(255 255 255 / 0.38)', border: '1px solid rgb(255 255 255 / 0.45)' }}>
+                <p className="meta mb-2" style={ink}>Tag us so it counts — Aruzhan first, then the sponsors</p>
+                <p className="body-copy" style={{ ...inkSoft, fontSize: '0.92rem', lineHeight: 1.5 }}>
+                  Instagram{' '}
+                  <a href={SOCIALS.instagram.href} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--ink)', textDecoration: 'underline' }}>{SOCIALS.instagram.handle}</a>
+                  {' · X '}
+                  {SOCIALS.organisers.map((o, i) => (
+                    <span key={o.name}>
+                      <a href={o.x} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--ink)', textDecoration: 'underline' }}>{o.xHandle}</a>
+                      {i < SOCIALS.organisers.length - 1 ? ' · ' : ''}
+                    </span>
+                  ))}
+                </p>
+                <p className="body-copy mt-1" style={{ ...inkSoft, fontSize: '0.92rem', lineHeight: 1.5 }}>
+                  LinkedIn{' '}
+                  {SOCIALS.organisers.map((o, i) => (
+                    <span key={o.name}>
+                      <a href={o.linkedin} target="_blank" rel="noopener noreferrer" style={{ color: 'var(--ink)', textDecoration: 'underline' }}>{o.name}</a>
+                      {i < SOCIALS.organisers.length - 1 ? ' · ' : ''}
+                    </span>
+                  ))}
+                </p>
+              </div>
             </Card>
             <Card>
               <Heading>Your final submission</Heading>

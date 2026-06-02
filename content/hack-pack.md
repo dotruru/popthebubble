@@ -127,7 +127,13 @@ The hack runs on **12-hour milestones**. At each one, do two things:
 
 ### 📣 Posting earns bonus points — seriously, post.
 
-We *want* you building in public. Post **however you like, as often as you like** — threads, demos, reels, before/afters, "we just got our first paying customer" moments. It gets you publicity, users, and feedback while you build — and it earns you **bonus points with the judges**. Tag **@PopTheBubble** / use the event hashtag so we can amplify you.
+We *want* you building in public. Post **however you like, as often as you like** — threads, demos, reels, before/afters, "we just got our first paying customer" moments. It gets you publicity, users, and feedback while you build — and it earns you **bonus points with the judges**. **Tag us on every post** so it counts toward your bonus and we can amplify you — **Aruzhan first** (most likely to see and reshare), then the rest of the organisers, then the sponsor accounts.
+
+**Tag us:**
+
+- 📸 Instagram: **@popthebubble.hack**
+- 🐦 X: [@arukanism](https://x.com/arukanism) (Aruzhan) · [@zmzlois](https://x.com/zmzlois) (Lois) · [@Lantos1618](https://x.com/Lantos1618) (Lyndon) · [@dimplnotsimpl](https://x.com/dimplnotsimpl) (Alramina)
+- 💼 LinkedIn: [Aruzhan](https://uk.linkedin.com/in/aruzhan-n) · [Lyndon](https://uk.linkedin.com/in/lyndon-leong-25b704b2) · [Lois](https://www.linkedin.com/in/loiszhao) · [Alramina](https://uk.linkedin.com/in/alramina-mz)
 
 - More good posts → more points.
 - Real moments > polished marketing.
@@ -323,6 +329,7 @@ Prep all you want — plan, research, build context, line up warm leads, talk to
 - **Discord:** [https://discord.gg/xZPfWvykd](https://discord.gg/xZPfWvykd) ← live nerve centre
 - **Apply / RSVP:** [https://lu.ma/035ubxn3](https://lu.ma/035ubxn3)
 - **Demo Day:** [https://luma.com/bi8t9jh8](https://luma.com/bi8t9jh8)
+- **Instagram:** [@popthebubble.hack](https://instagram.com/popthebubble.hack) — tag us in your build-in-public posts
 - **Email:** [contact@hackhouse.uk](mailto:contact@hackhouse.uk)
 
 *See you in the room. Go pop something. 🫧*
