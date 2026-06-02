@@ -13,9 +13,30 @@ describe('HackPackView', () => {
     expect(frame).toHaveAttribute('height', '533')
   })
 
-  it('switches to the Milestones tab on click', () => {
+  it('uses a horizontally scrollable tab list', () => {
     render(<HackPackView />)
-    fireEvent.click(screen.getByRole('tab', { name: 'Milestones' }))
-    expect(screen.getByText(/Post a milestone update/i)).toBeInTheDocument()
+    const tablist = screen.getByRole('tablist', { name: 'Scrollable hacker pack sections' })
+    expect(tablist).toHaveStyle({ overflowX: 'auto' })
+  })
+
+  it('combines milestones and final submission in one progress tab', () => {
+    render(<HackPackView />)
+    fireEvent.click(screen.getByRole('tab', { name: 'Progress & Submit' }))
+    expect(screen.getByText(/Milestones — post as you build/i)).toBeInTheDocument()
+    expect(screen.getByText(/Your final submission/i)).toBeInTheDocument()
+    expect(screen.getByTitle('Progress and final submission form')).toBeInTheDocument()
+  })
+
+  it('shows the complete judging rubric with point bands', () => {
+    render(<HackPackView />)
+    fireEvent.click(screen.getByRole('tab', { name: 'Judging' }))
+    expect(screen.getByText(/90 core points/i)).toBeInTheDocument()
+    expect(screen.getByText(/Does it actually work/i)).toBeInTheDocument()
+    expect(screen.getByText(/judges complete full flow end-to-end themselves/i)).toBeInTheDocument()
+    expect(screen.getByText(/Better than incumbent/i)).toBeInTheDocument()
+    expect(screen.getByText(/>=50% on a measured metric users care about/i)).toBeInTheDocument()
+    expect(screen.getByText(/Rigour & credibility/i)).toBeInTheDocument()
+    expect(screen.getByText(/Money changed hands/i)).toBeInTheDocument()
+    expect(screen.getAllByText(/Build in public/i).length).toBeGreaterThan(0)
   })
 })

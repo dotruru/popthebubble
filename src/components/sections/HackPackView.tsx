@@ -9,9 +9,10 @@ import {
   HACK_RULES,
   MILESTONES,
   SUBMISSION_ITEMS,
-  JUDGING_BASELINE,
-  JUDGING_BY_TRACK,
+  JUDGING_OVERVIEW,
+  JUDGING_RUBRIC,
   JUDGING_BONUS,
+  JUDGING_SCORING_RULES,
   PRIZES,
   FOOD,
   FOOD_NOTE,
@@ -28,8 +29,7 @@ const TABS = [
   { id: 'tracks', label: 'Tracks' },
   { id: 'rules', label: 'Rules' },
   { id: 'judging', label: 'Judging' },
-  { id: 'milestones', label: 'Milestones' },
-  { id: 'submit', label: 'Submit' },
+  { id: 'progress', label: 'Progress & Submit' },
   { id: 'prizes', label: 'Prizes' },
   { id: 'food', label: 'Food & Stay' },
   { id: 'faq', label: 'FAQ' },
@@ -43,7 +43,7 @@ const inkSoft = { color: 'var(--ink)', opacity: 0.75 }
 const SUMMARY_ITEMS = [
   { label: '36h build clock', value: 'Fri 8pm → Sun 8am', detail: 'The judged build window starts after dinner Friday.' },
   { label: 'Final submission', value: 'Sun 8:00am', detail: 'Live URL, repo, demo video, and proof are due.' },
-  { label: 'Awards', value: 'Sun 11am–3pm', detail: 'Top 3 demos, winners, drinks, networking, livestream.' },
+  { label: 'Awards', value: 'Sun 11:30am–3pm', detail: 'Top 3 demos, winners, drinks, networking, livestream.' },
   { label: 'What wins', value: 'Evidence', detail: 'Money, users, burden removed, and honest receipts.' },
 ] as const
 
@@ -112,8 +112,8 @@ export function HackPackView() {
         <div
           className="glass glass--milk rounded-lg flex gap-2 overflow-x-auto p-2 mb-8"
           role="tablist"
-          aria-label="Hacker pack sections"
-          style={{ scrollbarWidth: 'none' }}
+          aria-label="Scrollable hacker pack sections"
+          style={{ overflowX: 'auto', scrollbarWidth: 'thin', scrollSnapType: 'x proximity' }}
         >
           {TABS.map((tab) => {
             const isActive = tab.id === active
@@ -125,11 +125,13 @@ export function HackPackView() {
                 onClick={() => setActive(tab.id)}
                 className="meta whitespace-nowrap rounded-full transition-colors"
                 style={{
+                  flex: '0 0 auto',
                   padding: '0.6rem 1.1rem',
                   border: '1px solid rgb(255 255 255 / 0.5)',
                   background: isActive ? 'var(--ink)' : 'rgb(255 255 255 / 0.4)',
                   color: isActive ? '#fff' : 'var(--ink)',
                   cursor: 'pointer',
+                  scrollSnapAlign: 'start',
                 }}
               >
                 {tab.label}
@@ -213,44 +215,105 @@ export function HackPackView() {
         )}
 
         {active === 'judging' && (
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4">
             <Card>
-              <Heading>Baseline (all tracks)</Heading>
-              <Bullets items={JUDGING_BASELINE} />
-            </Card>
-            <Card>
-              <Heading>By track</Heading>
-              <div className="flex flex-col gap-3">
-                {JUDGING_BY_TRACK.map((j) => (
-                  <div key={j.track}>
-                    <p className="meta mb-1" style={ink}>{j.track}</p>
-                    <p className="body-copy" style={inkSoft}>{j.weight}</p>
+              <Heading>How judging works</Heading>
+              <div className="grid gap-3 md:grid-cols-4">
+                {JUDGING_OVERVIEW.map((item) => (
+                  <div
+                    key={item.label}
+                    className="rounded-md"
+                    style={{ padding: '1rem', background: 'rgb(255 255 255 / 0.46)', border: '1px solid rgb(255 255 255 / 0.5)' }}
+                  >
+                    <p className="meta mb-2" style={{ ...ink, opacity: 0.48 }}>{item.label}</p>
+                    <p className="body-copy mb-2" style={{ ...ink, fontWeight: 700 }}>{item.value}</p>
+                    <p className="body-copy" style={{ ...inkSoft, fontSize: '0.92rem', lineHeight: 1.45 }}>{item.detail}</p>
                   </div>
                 ))}
               </div>
             </Card>
-            <Card>
-              <Heading>⭐ Bonus points</Heading>
-              <div className="flex flex-col gap-3">
-                {JUDGING_BONUS.map((b) => (
-                  <div key={b.title}>
-                    <p className="meta mb-1" style={ink}>{b.title}</p>
-                    <p className="body-copy" style={inkSoft}>{b.detail}</p>
+
+            {JUDGING_RUBRIC.map((section) => (
+              <Card key={section.section}>
+                <div className="mb-5 flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <p className="meta mb-1" style={{ ...ink, opacity: 0.48 }}>{section.scope}</p>
+                    <Heading>{section.section}</Heading>
                   </div>
-                ))}
-              </div>
-            </Card>
+                  <span
+                    className="meta rounded-full"
+                    style={{ padding: '0.45rem 0.8rem', background: 'var(--ink)', color: '#fff' }}
+                  >
+                    {section.points} pts
+                  </span>
+                </div>
+                <div className="grid gap-3">
+                  {section.criteria.map((criterion) => (
+                    <div
+                      key={criterion.name}
+                      className="rounded-md"
+                      style={{ padding: '1rem', background: 'rgb(255 255 255 / 0.38)', border: '1px solid rgb(255 255 255 / 0.45)' }}
+                    >
+                      <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
+                        <p className="body-copy" style={{ ...ink, fontWeight: 700 }}>{criterion.name}</p>
+                        <p className="meta" style={{ ...ink, opacity: 0.55 }}>{criterion.points} pts</p>
+                      </div>
+                      <div className="grid gap-2 md:grid-cols-2">
+                        {criterion.bands.map((band) => (
+                          <div key={`${criterion.name}-${band.score}`} className="flex gap-3">
+                            <span
+                              className="meta"
+                              style={{
+                                flex: '0 0 2.4rem',
+                                textAlign: 'center',
+                                padding: '0.2rem 0.35rem',
+                                borderRadius: '999px',
+                                background: 'rgb(32 32 32 / 0.08)',
+                                color: 'var(--ink)',
+                              }}
+                            >
+                              {band.score}
+                            </span>
+                            <span className="body-copy" style={{ ...inkSoft, fontSize: '0.94rem', lineHeight: 1.45 }}>
+                              {band.detail}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+            ))}
+
+            <div className="grid gap-4 md:grid-cols-2">
+              <Card>
+                <Heading>Bonus points</Heading>
+                <div className="flex flex-col gap-3">
+                  {JUDGING_BONUS.map((b) => (
+                    <div key={b.title}>
+                      <p className="meta mb-1" style={ink}>{b.title} — {b.points}</p>
+                      <p className="body-copy" style={inkSoft}>{b.detail}</p>
+                    </div>
+                  ))}
+                </div>
+              </Card>
+              <Card>
+                <Heading>Scoring rules</Heading>
+                <Bullets items={JUDGING_SCORING_RULES} />
+              </Card>
+            </div>
           </div>
         )}
 
-        {active === 'milestones' && (
-          <div className="grid gap-4 md:grid-cols-2">
+        {active === 'progress' && (
+          <div className="grid gap-4 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)]">
             <Card>
               <Heading>Milestones — post as you build</Heading>
-              <ul className="flex flex-col gap-3 mb-4">
+              <ul className="flex flex-col gap-3 mb-5">
                 {MILESTONES.map((m) => (
-                  <li key={m.id} className="flex gap-3">
-                    <span className="meta" style={{ ...ink, minWidth: '3rem' }}>🏁 {m.id}</span>
+                  <li key={m.id} className="grid gap-2 rounded-md sm:grid-cols-[4.2rem_1fr]" style={{ padding: '0.85rem', background: 'rgb(255 255 255 / 0.38)' }}>
+                    <span className="meta" style={ink}>{m.id}</span>
                     <span className="body-copy" style={inkSoft}>
                       <strong style={ink}>{m.when}</strong> — {m.detail}
                     </span>
@@ -258,37 +321,22 @@ export function HackPackView() {
                 ))}
               </ul>
               <p className="body-copy" style={inkSoft}>
-                Post publicly on LinkedIn, X, a short reel, or wherever your users are.
-                Strong progress posts earn <strong style={ink}>bonus points</strong> and
-                give your project useful distribution while you build.
+                M1 and M2 are progress updates. M3 is the final submission deadline.
+                Public posts can also count toward the build-in-public bonus when they are dated,
+                substantive, and show real progress instead of polished marketing.
               </p>
             </Card>
             <Card>
-              <Heading>Post a milestone update</Heading>
-              <p className="body-copy mb-4" style={inkSoft}>
-                Use the same form for milestone updates and final submission. For this card,
-                choose <strong style={ink}>M1</strong> or <strong style={ink}>M2</strong> as the update type.
-              </p>
-              <AirtableEmbed src={AIRTABLE_EMBEDS.progress} title="Milestone update form" />
-            </Card>
-          </div>
-        )}
-
-        {active === 'submit' && (
-          <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <Heading>Your submission</Heading>
+              <Heading>Your final submission</Heading>
               <Bullets items={SUBMISSION_ITEMS} />
-              <p className="body-copy mt-4" style={ink}>
+              <p className="body-copy mt-4 mb-5" style={ink}>
                 Submit by <strong>Sunday 8:00am</strong>. Late submissions cannot be judged.
               </p>
-            </Card>
-            <Card>
-              <Heading>Submit your project</Heading>
               <p className="body-copy mb-4" style={inkSoft}>
-                Use the progress form and choose <strong style={ink}>Final submission</strong> as the update type.
+                Use this same form for <strong style={ink}>M1</strong>, <strong style={ink}>M2</strong>,
+                and <strong style={ink}>Final submission</strong>. Pick the matching update type in the form.
               </p>
-              <AirtableEmbed src={AIRTABLE_EMBEDS.progress} title="Final submission form" />
+              <AirtableEmbed src={AIRTABLE_EMBEDS.progress} title="Progress and final submission form" />
             </Card>
           </div>
         )}

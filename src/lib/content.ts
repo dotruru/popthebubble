@@ -300,21 +300,183 @@ export const SUBMISSION_ITEMS = [
 ] as const
 
 // ─── Judging ───
-export const JUDGING_BASELINE = [
-  'Does it actually work? Judges should be able to see or use a real working product.',
-  'Depth of proof. Every important claim should have receipts.',
-  'Honesty. Real numbers only; unsupported headline claims score poorly.',
+export const JUDGING_OVERVIEW = [
+  { label: 'Core score', value: '90 core points', detail: '30 baseline points + 60 track-specific points.' },
+  { label: 'Bonus ceiling', value: '+20 bonus points', detail: 'Build in public and Mubit SDK usage can lift strong evidence.' },
+  { label: 'Maximum score', value: '110 points', detail: 'Total = baseline + chosen track + bonus.' },
+  { label: 'Track rule', value: 'Pick one track', detail: 'You are judged on one track, not a blend of all three.' },
 ] as const
 
-export const JUDGING_BY_TRACK = [
-  { track: 'Outbuild', weight: 'Measured improvement over the incumbent, real users switching, and revenue or hard willingness to pay.' },
-  { track: 'Validate', weight: 'Transparent method, credible evidence, and a truth significant enough to matter.' },
-  { track: 'Effect', weight: 'A named person or organisation helped shape the build, confirms the burden changed, and paid or committed to pay.' },
+export const JUDGING_RUBRIC = [
+  {
+    section: 'Baseline',
+    scope: 'All teams',
+    points: 30,
+    criteria: [
+      {
+        name: 'Does it actually work',
+        points: 10,
+        bands: [
+          { score: '0', detail: 'Slides or mockup only.' },
+          { score: '4', detail: 'Core flow runs locally.' },
+          { score: '7', detail: 'Deployed and reachable by judges.' },
+          { score: '10', detail: 'Judges complete full flow end-to-end themselves.' },
+        ],
+      },
+      {
+        name: 'Depth of proof',
+        points: 12,
+        bands: [
+          { score: '0', detail: 'Claims only, no artifacts.' },
+          { score: '4', detail: 'One verifiable artifact.' },
+          { score: '8', detail: 'At least 3 artifacts across at least 2 types, for example revenue plus usage logs.' },
+          { score: '12', detail: 'Every headline claim traces to a dated, independently checkable source.' },
+        ],
+      },
+      {
+        name: 'Honesty',
+        points: 8,
+        bands: [
+          { score: '8', detail: 'Every claim checks out.' },
+          { score: '4', detail: 'Minor unverifiable claims, nothing inflated.' },
+          { score: '0', detail: 'Unverifiable headline claim.' },
+          { score: 'DQ', detail: 'Fabrication is subject to disqualification.' },
+        ],
+      },
+    ],
+  },
+  {
+    section: 'Track 01 · Outbuild',
+    scope: 'Build the sharper version of an incumbent',
+    points: 60,
+    criteria: [
+      {
+        name: 'Better than incumbent',
+        points: 25,
+        bands: [
+          { score: '0', detail: 'No comparison.' },
+          { score: '8', detail: 'Better, but unmeasured.' },
+          { score: '16', detail: '>=25% improvement on a measured primary metric such as speed, cost, steps, or error rate.' },
+          { score: '25', detail: '>=50% on a measured metric users care about, reproducible by judges.' },
+        ],
+      },
+      {
+        name: 'Real users switched',
+        points: 20,
+        bands: [
+          { score: '0', detail: 'Nobody left the incumbent.' },
+          { score: '8', detail: 'A handful of early switchers, lightly evidenced.' },
+          { score: '14', detail: 'Real cluster of users actively choosing your version.' },
+          { score: '20', detail: 'Clear evidenced migration: multiple active users stuck with it, usage data shown.' },
+        ],
+      },
+      {
+        name: 'Revenue / willingness to pay',
+        points: 15,
+        bands: [
+          { score: '0', detail: 'No evidence.' },
+          { score: '5', detail: 'Soft signal: verbal interest, waitlist, or unpaid signups.' },
+          { score: '10', detail: 'Hard commitment: card on file, signed LOI, or pre-order.' },
+          { score: '15', detail: 'Paying customers: real money from more than 1 user, receipts shown.' },
+        ],
+      },
+    ],
+  },
+  {
+    section: 'Track 02 · Validate',
+    scope: "Test a company's story and make the evidence usable",
+    points: 60,
+    criteria: [
+      {
+        name: 'Rigour & credibility',
+        points: 25,
+        bands: [
+          { score: '0', detail: 'Assertions with no backing.' },
+          { score: '8', detail: 'Case made, but method is opaque or not reproducible.' },
+          { score: '16', detail: 'Sound transparent method a third party could rerun.' },
+          { score: '25', detail: 'Airtight: data and steps fully shared, conclusions reproducible, sourced so the target could not refute it.' },
+        ],
+      },
+      {
+        name: 'Significance of truth',
+        points: 20,
+        bands: [
+          { score: '0', detail: 'Trivial or already known.' },
+          { score: '8', detail: 'Matters to a single team or product line.' },
+          { score: '14', detail: 'Matters to a whole company.' },
+          { score: '20', detail: 'Matters across a market, with materiality shown.' },
+        ],
+      },
+      {
+        name: 'Decision-maker proof',
+        points: 15,
+        bands: [
+          { score: '0', detail: 'Raw notes or data dump.' },
+          { score: '6', detail: 'Clear readable writeup.' },
+          { score: '11', detail: 'Decision-ready artifact, such as a one-pager, dashboard, or report, that a named role could act on today.' },
+          { score: '15', detail: 'Decision-ready and put in front of, or acknowledged by, a relevant decision-maker.' },
+        ],
+      },
+    ],
+  },
+  {
+    section: 'Track 03 · Effect',
+    scope: 'Remove a real recurring burden with a collaborator',
+    points: 60,
+    criteria: [
+      {
+        name: 'Burden actually removed',
+        points: 25,
+        bands: [
+          { score: '0', detail: 'No burden removed.' },
+          { score: '8', detail: 'Burden documented, partial relief.' },
+          { score: '16', detail: '>=50% reduction in a recurring task for one cycle.' },
+          { score: '25', detail: 'Sustained relief, confirmed by the user.' },
+        ],
+      },
+      {
+        name: 'Money changed hands',
+        points: 20,
+        bands: [
+          { score: '0', detail: 'No money.' },
+          { score: '7', detail: 'Committed to pay, signed or card on file.' },
+          { score: '13', detail: 'Paid once, real transaction.' },
+          { score: '20', detail: 'Paying relationship is repeat or ongoing, not token.' },
+        ],
+      },
+      {
+        name: 'Genuine collaboration',
+        points: 15,
+        bands: [
+          { score: '0', detail: 'Built in a vacuum, no contact.' },
+          { score: '6', detail: 'Talked once and took a brief.' },
+          { score: '11', detail: 'Worked through build feedback that changed direction.' },
+          { score: '15', detail: 'True working partnership: continuous loop, collaborator co-validates result.' },
+        ],
+      },
+    ],
+  },
 ] as const
 
 export const JUDGING_BONUS = [
-  { title: 'Build in public', detail: 'Substantive, dated public posts during the hack can add bonus points. Real progress beats polished marketing.' },
-  { title: 'Mubit SDK', detail: 'Meaningful use of the Mubit SDK can add bonus points when it is genuinely part of the product, not a bolted-on mention.' },
+  {
+    title: 'Build in public',
+    points: 'up to +12',
+    detail: '+2 per substantive, dated public post during the hack, roughly 6 posts max. Real moments beat polished marketing.',
+  },
+  {
+    title: 'Mubit SDK',
+    points: 'up to +10',
+    detail: 'Up to +4 for bolted-on use. Up to +10 when the core product genuinely relies on Mubit operational memory and judges can verify it.',
+  },
+] as const
+
+export const JUDGING_SCORING_RULES = [
+  'Total score = baseline + chosen track + bonus.',
+  'Each criterion is scored to the highest band fully met. A partial claim earns the band below.',
+  'Every point above zero must be backed by evidence. Unverified claims score one band below.',
+  'Fabrication is grounds for disqualification.',
+  'Pick one track. Judges will not mix track-specific categories.',
 ] as const
 
 // ─── Prizes ───

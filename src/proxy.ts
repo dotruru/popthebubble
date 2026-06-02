@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { gateDecision } from '@/lib/gate'
 
 const COOKIE = 'hh_portal'
+export const PORTAL_COOKIE_PATH = '/'
 
 // Next 16 "proxy" convention (formerly middleware). Gates the hacker portal.
 export function proxy(req: NextRequest) {
@@ -27,7 +28,7 @@ export function proxy(req: NextRequest) {
       httpOnly: true,
       secure: true,
       sameSite: 'lax',
-      path: '/hackpack',
+      path: PORTAL_COOKIE_PATH,
       maxAge: 60 * 60 * 24 * 7, // 7 days
     })
     return res
