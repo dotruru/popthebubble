@@ -24,7 +24,8 @@ export default function HackPackPage() {
             <p className="meta" style={{ opacity: 0.6 }}>Issue 01 · 5–7 June 2026 · London</p>
             <h1 className="section-title mt-3" style={{ color: '#fff' }}>Hacker Pack.</h1>
             <p className="body-copy mt-4" style={{ color: '#fff', opacity: 0.8, maxWidth: '50ch' }}>
-              Everything you need to build, ship, and win. Tap a tab — read only what you need.
+              The operating manual for the weekend: check-in, schedule, tracks, judging,
+              submissions, food, travel, and the proof that helps teams win.
             </p>
           </div>
         </section>

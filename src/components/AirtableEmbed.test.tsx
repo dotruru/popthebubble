@@ -7,6 +7,8 @@ describe('AirtableEmbed', () => {
     const frame = screen.getByTitle('Check-in') as HTMLIFrameElement
     expect(frame.tagName).toBe('IFRAME')
     expect(frame.src).toContain('https://airtable.com/embed/shrABC')
+    expect(frame).toHaveAttribute('frameBorder', '0')
+    expect(frame).toHaveStyle({ background: 'transparent', border: '1px solid #ccc' })
   })
 
   it('renders a placeholder pointing to Discord when src is empty', () => {

@@ -118,7 +118,7 @@ export function SponsorDialog({ children }: SponsorDialogProps) {
                 <Badge>{selectedTier.name}</Badge>
               </div>
               <DialogTitle className="text-xl font-semibold">Tell us about yourself</DialogTitle>
-              <DialogDescription>We'll follow up within 48 hours.</DialogDescription>
+              <DialogDescription>We&apos;ll follow up within 48 hours.</DialogDescription>
             </DialogHeader>
 
             <Separator className="my-4" />

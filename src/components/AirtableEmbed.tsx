@@ -27,10 +27,11 @@ export function AirtableEmbed({ src, title, height = 720 }: AirtableEmbedProps) 
         className="airtable-embed"
         src={src}
         title={title}
+        frameBorder="0"
         width="100%"
         height={height}
         loading="lazy"
-        style={{ background: 'transparent', border: 'none', display: 'block' }}
+        style={{ background: 'transparent', border: '1px solid #ccc', display: 'block' }}
       />
     </div>
   )

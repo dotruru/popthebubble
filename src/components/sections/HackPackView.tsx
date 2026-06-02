@@ -40,6 +40,13 @@ type TabId = (typeof TABS)[number]['id']
 const ink = { color: 'var(--ink)' }
 const inkSoft = { color: 'var(--ink)', opacity: 0.75 }
 
+const SUMMARY_ITEMS = [
+  { label: '36h build clock', value: 'Fri 8pm → Sun 8am', detail: 'The judged build window starts after dinner Friday.' },
+  { label: 'Final submission', value: 'Sun 8:00am', detail: 'Live URL, repo, demo video, and proof are due.' },
+  { label: 'Awards', value: 'Sun 11am–3pm', detail: 'Top 3 demos, winners, drinks, networking, livestream.' },
+  { label: 'What wins', value: 'Evidence', detail: 'Money, users, burden removed, and honest receipts.' },
+] as const
+
 function Card({ children }: { children: React.ReactNode }) {
   return (
     <div className="glass glass--milk rounded-lg" style={{ padding: '1.5rem' }}>
@@ -75,9 +82,35 @@ export function HackPackView() {
   return (
     <section className="section" style={{ paddingTop: 'clamp(2rem, 4vw, 3rem)' }}>
       <div className="container">
+        <div className="grid gap-3 md:grid-cols-4 mb-8" aria-label="Hacker pack essentials">
+          {SUMMARY_ITEMS.map((item) => (
+            <div
+              key={item.label}
+              className="glass glass--milk rounded-lg"
+              style={{ padding: '1rem', border: '1px solid rgb(255 255 255 / 0.55)' }}
+            >
+              <p className="meta mb-2" style={{ ...ink, opacity: 0.45 }}>{item.label}</p>
+              <p
+                style={{
+                  ...ink,
+                  fontFamily: 'var(--font-sans)',
+                  fontSize: 'clamp(1.05rem, 1.5vw, 1.35rem)',
+                  fontWeight: 700,
+                  lineHeight: 1.15,
+                }}
+              >
+                {item.value}
+              </p>
+              <p className="body-copy mt-3" style={{ ...inkSoft, fontSize: '0.95rem', lineHeight: 1.45 }}>
+                {item.detail}
+              </p>
+            </div>
+          ))}
+        </div>
+
         {/* Tab bar */}
         <div
-          className="flex gap-2 overflow-x-auto pb-2 mb-8"
+          className="glass glass--milk rounded-lg flex gap-2 overflow-x-auto p-2 mb-8"
           role="tablist"
           aria-label="Hacker pack sections"
           style={{ scrollbarWidth: 'none' }}
@@ -110,11 +143,11 @@ export function HackPackView() {
           <Card>
             <Heading>Check in</Heading>
             <p className="body-copy mb-6" style={inkSoft}>
-              Check in first so we know you&apos;re hacking. Name, email, team and track —
-              plus your dev-account handles (GitHub / Vercel / etc.) so sponsors can drop
-              credits on the right accounts.
+              Start here when you arrive. Add your name, email, team, track, and developer
+              account handles so organisers can confirm you&apos;re in the room and sponsors
+              can send credits to the right accounts.
             </p>
-            <AirtableEmbed src={AIRTABLE_EMBEDS.checkin} title="Check-in form" />
+            <AirtableEmbed src={AIRTABLE_EMBEDS.checkin} title="Check-in form" height={533} />
           </Card>
         )}
 
@@ -122,12 +155,22 @@ export function HackPackView() {
           <div className="grid gap-4 md:grid-cols-3">
             {SCHEDULE.map((day) => (
               <Card key={day.day}>
-                <p className="meta mb-1" style={{ ...ink, opacity: 0.4 }}>{day.tag}</p>
-                <Heading>{day.day}</Heading>
-                <ul className="flex flex-col gap-3">
+                <div className="mb-5">
+                  <p className="meta mb-1" style={{ ...ink, opacity: 0.4 }}>{day.tag}</p>
+                  <Heading>{day.day}</Heading>
+                </div>
+                <ul className="flex flex-col gap-2.5">
                   {day.items.map((item, i) => (
-                    <li key={i} className="flex gap-3">
-                      <span className="meta" style={{ ...ink, opacity: 0.5, minWidth: '5.5rem' }}>{item.time}</span>
+                    <li
+                      key={i}
+                      className="grid gap-1 rounded-md sm:grid-cols-[5.8rem_1fr]"
+                      style={{
+                        padding: '0.75rem 0.85rem',
+                        background: item.highlight ? 'rgb(255 255 255 / 0.62)' : 'rgb(255 255 255 / 0.32)',
+                        border: item.highlight ? '1px solid rgb(32 32 32 / 0.18)' : '1px solid rgb(255 255 255 / 0.45)',
+                      }}
+                    >
+                      <span className="meta" style={{ ...ink, opacity: 0.55 }}>{item.time}</span>
                       <span className="body-copy" style={item.highlight ? { ...ink, fontWeight: 600 } : inkSoft}>
                         {item.label}
                       </span>
@@ -215,14 +258,16 @@ export function HackPackView() {
                 ))}
               </ul>
               <p className="body-copy" style={inkSoft}>
-                Post your progress publicly (LinkedIn, X, a reel — anything). It earns
-                <strong style={ink}> bonus points</strong>, and it&apos;s free distribution for your product. More good posts → more points.
+                Post publicly on LinkedIn, X, a short reel, or wherever your users are.
+                Strong progress posts earn <strong style={ink}>bonus points</strong> and
+                give your project useful distribution while you build.
               </p>
             </Card>
             <Card>
               <Heading>Post a milestone update</Heading>
               <p className="body-copy mb-4" style={inkSoft}>
-                Same form you&apos;ll use to submit — just pick <strong style={ink}>M1 or M2</strong> as the update type.
+                Use the same form for milestone updates and final submission. For this card,
+                choose <strong style={ink}>M1</strong> or <strong style={ink}>M2</strong> as the update type.
               </p>
               <AirtableEmbed src={AIRTABLE_EMBEDS.progress} title="Milestone update form" />
             </Card>
@@ -235,13 +280,13 @@ export function HackPackView() {
               <Heading>Your submission</Heading>
               <Bullets items={SUBMISSION_ITEMS} />
               <p className="body-copy mt-4" style={ink}>
-                Submit by the <strong>Sun 8:00am</strong> code freeze. Late = not judged.
+                Submit by <strong>Sunday 8:00am</strong>. Late submissions cannot be judged.
               </p>
             </Card>
             <Card>
               <Heading>Submit your project</Heading>
               <p className="body-copy mb-4" style={inkSoft}>
-                Same form as your milestone updates — pick <strong style={ink}>Final submission</strong> as the update type.
+                Use the progress form and choose <strong style={ink}>Final submission</strong> as the update type.
               </p>
               <AirtableEmbed src={AIRTABLE_EMBEDS.progress} title="Final submission form" />
             </Card>
@@ -259,7 +304,7 @@ export function HackPackView() {
               ))}
             </div>
             <p className="body-copy mt-5" style={inkSoft}>
-              Plus sponsor credits &amp; perks for all builders — dropped in Discord during the event.
+              Sponsor credits, API keys, and builder perks will be shared in Discord during the event.
             </p>
           </Card>
         )}
