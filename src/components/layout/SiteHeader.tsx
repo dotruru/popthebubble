@@ -3,12 +3,14 @@
 import { useState, useEffect } from 'react'
 import { GlassButton } from '@/components/primitives'
 import { Button } from '@/components/ui/button'
-import { EVENT } from '@/lib/content'
+import { EVENT, LINKS } from '@/lib/content'
 
 const NAV_LINKS = [
-  { label: 'Tracks', href: '#tracks' },
-  { label: 'Timeline', href: '#timeline' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Tracks', href: '/#tracks', external: false },
+  { label: 'Schedule', href: '/schedule', external: false },
+  { label: 'Hack Pack', href: '/hackpack', external: false },
+  { label: 'Discord', href: LINKS.discord, external: true },
+  { label: 'FAQ', href: '/#faq', external: false },
 ]
 
 export function SiteHeader() {
@@ -50,6 +52,8 @@ export function SiteHeader() {
             <a
               key={link.href}
               href={link.href}
+              target={link.external ? '_blank' : undefined}
+              rel={link.external ? 'noopener noreferrer' : undefined}
               className="meta text-white/80 hover:text-white transition-colors"
               style={{ textShadow: navTextShadow }}
             >
@@ -92,6 +96,8 @@ export function SiteHeader() {
               <a
                 key={link.href}
                 href={link.href}
+                target={link.external ? '_blank' : undefined}
+                rel={link.external ? 'noopener noreferrer' : undefined}
                 className="meta"
                 style={{ color: 'var(--ink)', opacity: 0.8 }}
                 onClick={() => setOpen(false)}

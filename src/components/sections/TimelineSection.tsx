@@ -37,6 +37,21 @@ const data = TIMELINE_STEPS.map((step, i) => ({
       <p className="body-copy" style={{ color: 'var(--ink)', opacity: 0.75 }}>
         {step.detail}
       </p>
+      {'note' in step && step.note && (
+        <div
+          className="mt-4 flex items-start gap-2 rounded-md px-3 py-2"
+          style={{
+            background: `${STEP_COLORS[i]}1f`,
+            border: `1px solid ${STEP_COLORS[i]}59`,
+          }}
+        >
+          <span aria-hidden="true" style={{ color: STEP_COLORS[i], lineHeight: 1.45 }}>⚑</span>
+          <p style={{ color: 'var(--ink)', fontFamily: 'var(--font-sans)', fontSize: '0.85rem', lineHeight: 1.45 }}>
+            <strong style={{ fontWeight: 600 }}>{step.note.title}.</strong>{' '}
+            <span style={{ opacity: 0.75 }}>{step.note.detail}</span>
+          </p>
+        </div>
+      )}
       {'href' in step && step.href && (
         <GlassButton
           href={step.href}

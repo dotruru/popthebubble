@@ -6,6 +6,7 @@ import {
   TracksSection,
   CohortSection,
   TimelineSection,
+  ScheduleSection,
   SponsorsSection,
   FAQSection,
   FooterLandscape,
@@ -22,6 +23,7 @@ export default function Home() {
         <TracksSection />
         <CohortSection />
         <TimelineSection />
+        <ScheduleSection />
         <SponsorsSection />
         <FAQSection />
         <FooterLandscape />

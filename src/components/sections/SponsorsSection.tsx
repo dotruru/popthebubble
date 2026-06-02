@@ -20,12 +20,14 @@ export function SponsorsSection() {
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {SPONSORS.map((sponsor, i) => (
+          {SPONSORS.map((sponsor, i) => {
+            const logo: string = sponsor.logo
+            return (
             <GlassCard key={i} variant="milk" className="!p-6 flex flex-col justify-center min-h-[9rem]">
-              {sponsor.logo ? (
+              {logo ? (
                 <div className="relative" style={{ height: 44, width: '100%' }}>
                   <Image
-                    src={sponsor.logo}
+                    src={logo}
                     alt={sponsor.name}
                     fill
                     sizes="180px"
@@ -33,23 +35,30 @@ export function SponsorsSection() {
                   />
                 </div>
               ) : (
-                <div
-                  style={{
-                    height: 44,
-                    borderRadius: '0.375rem',
-                    border: '1.5px dashed rgb(255 255 255 / 0.3)',
-                  }}
-                />
+                <div style={{ height: 44, display: 'flex', alignItems: 'center' }}>
+                  <span
+                    style={{
+                      fontFamily: 'var(--font-sans)',
+                      fontWeight: 700,
+                      fontSize: '1.3rem',
+                      letterSpacing: '-0.02em',
+                      color: 'var(--ink)',
+                    }}
+                  >
+                    {sponsor.name}
+                  </span>
+                </div>
               )}
             </GlassCard>
-          ))}
+            )
+          })}
         </div>
 
         <div className="mt-10 flex items-center gap-8 flex-wrap">
           <div className="flower-btn-wrap">
             <SponsorDialog>
               <button className="flower-btn">
-                <span className="flower-btn__text">Become a Partner →</span>
+                <span className="flower-btn__text">Become a Sponsor →</span>
               </button>
             </SponsorDialog>
             <span className="flower-btn__bloom flower-btn__bloom--1" aria-hidden="true">
