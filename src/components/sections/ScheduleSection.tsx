@@ -44,16 +44,10 @@ export function ScheduleSection() {
           >
             Full schedule →
           </a>
-          <a
-            href={LINKS.discord}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="meta rounded-full"
-            style={{ padding: '0.7rem 1.3rem', border: '1px solid rgb(255 255 255 / 0.6)', color: 'var(--ink)' }}
-          >
-            Join the Discord →
-          </a>
         </div>
+        <p className="meta mt-5" style={{ ...ink, opacity: 0.55, maxWidth: '46ch' }}>
+          Discord — and everything inside it — is for builders accepted on Luma.
+        </p>
       </div>
     </section>
   )

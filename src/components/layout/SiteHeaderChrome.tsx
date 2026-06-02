@@ -12,7 +12,6 @@ interface SiteHeaderChromeProps {
 const BASE_NAV_LINKS = [
   { label: 'Tracks', href: '/#tracks', external: false },
   { label: 'Schedule', href: '/schedule', external: false },
-  { label: 'Discord', href: LINKS.discord, external: true },
   { label: 'FAQ', href: '/#faq', external: false },
 ] as const
 

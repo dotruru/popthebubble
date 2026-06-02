@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { SiteHeader } from '@/components/layout/SiteHeader'
-import { SCHEDULE, LINKS, EVENT } from '@/lib/content'
+import { SCHEDULE, EVENT } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Schedule — Pop the Bubble',
@@ -70,16 +70,10 @@ export default function SchedulePage() {
                 >
                   Apply →
                 </a>
-                <a
-                  href={LINKS.discord}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="meta rounded-full"
-                  style={{ padding: '0.7rem 1.3rem', border: '1px solid rgb(255 255 255 / 0.6)', color: 'var(--ink)' }}
-                >
-                  Join Discord →
-                </a>
               </div>
+              <p className="meta mt-5" style={{ ...ink, opacity: 0.55, maxWidth: '46ch' }}>
+                Discord — and everything inside it — is for builders accepted on Luma.
+              </p>
             </div>
           </section>
         </div>
