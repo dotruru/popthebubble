@@ -319,8 +319,8 @@ export const JUDGING_BONUS = [
 // ─── Prizes ───
 export const PRIZES = [
   { place: '1st', prize: '£10,000 cash' },
-  { place: '2nd', prize: 'In-kind: accelerator interviews (Residency, EWOR + others) + sponsor credits + hiring pipeline' },
-  { place: '3rd', prize: 'In-kind: accelerator interviews + sponsor credits + hiring pipeline' },
+  { place: '2nd', prize: 'TBD' },
+  { place: '3rd', prize: 'TBD' },
 ] as const
 
 // ─── Food & travel ───
