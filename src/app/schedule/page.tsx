@@ -71,13 +71,6 @@ export default function SchedulePage() {
                   Apply →
                 </a>
                 <a
-                  href={LINKS.hackpack}
-                  className="meta rounded-full"
-                  style={{ padding: '0.7rem 1.3rem', border: '1px solid rgb(255 255 255 / 0.6)', color: 'var(--ink)' }}
-                >
-                  Full hacker pack →
-                </a>
-                <a
                   href={LINKS.discord}
                   target="_blank"
                   rel="noopener noreferrer"

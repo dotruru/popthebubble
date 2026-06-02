@@ -45,11 +45,13 @@ export function ScheduleSection() {
             Full schedule →
           </a>
           <a
-            href={LINKS.hackpack}
+            href={LINKS.discord}
+            target="_blank"
+            rel="noopener noreferrer"
             className="meta rounded-full"
             style={{ padding: '0.7rem 1.3rem', border: '1px solid rgb(255 255 255 / 0.6)', color: 'var(--ink)' }}
           >
-            Read the hacker pack →
+            Join the Discord →
           </a>
         </div>
       </div>
