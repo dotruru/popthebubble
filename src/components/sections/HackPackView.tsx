@@ -259,7 +259,9 @@ export function HackPackView() {
                         <p className="meta" style={{ ...ink, opacity: 0.55 }}>{criterion.points} pts</p>
                       </div>
                       <div className="grid gap-2 md:grid-cols-2">
-                        {criterion.bands.map((band) => (
+                        {criterion.bands.map((band) => {
+                          const isDQ = Number.isNaN(Number(band.score))
+                          return (
                           <div key={`${criterion.name}-${band.score}`} className="flex gap-3">
                             <span
                               className="meta"
@@ -268,8 +270,9 @@ export function HackPackView() {
                                 textAlign: 'center',
                                 padding: '0.2rem 0.35rem',
                                 borderRadius: '999px',
-                                background: 'rgb(32 32 32 / 0.08)',
-                                color: 'var(--ink)',
+                                background: isDQ ? 'rgb(255 74 50 / 0.16)' : 'rgb(32 32 32 / 0.08)',
+                                color: isDQ ? 'var(--vermillion)' : 'var(--ink)',
+                                fontWeight: isDQ ? 700 : undefined,
                               }}
                             >
                               {band.score}
@@ -278,7 +281,8 @@ export function HackPackView() {
                               {band.detail}
                             </span>
                           </div>
-                        ))}
+                          )
+                        })}
                       </div>
                     </div>
                   ))}
