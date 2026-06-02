@@ -26,7 +26,7 @@
 | **Dates**               | Friday 5 – Sunday 7 June 2026                                                 |
 | **Build window**        | 8:00pm Fri → 8:00am Sun (36h)                                                 |
 | **Venue**               | London — full address in your acceptance email + pinned in Discord            |
-| **Awards reception**    | Sun 7 June, 11:00–15:00, St Katharine Cree — drinks, networking, livestreamed |
+| **Awards reception**    | Sun 7 June, 11:30–15:00, St Katharine Cree — drinks, networking, livestreamed |
 | **Wifi**                | SSID + password on signage & pinned in Discord on arrival                     |
 | **Discord**             | [https://discord.gg/xZPfWvykd](https://discord.gg/xZPfWvykd) — primary comms  |
 | **Email**               | [contact@hackhouse.uk](mailto:contact@hackhouse.uk)                           |
@@ -61,7 +61,7 @@
 - **~9:00am** — Everyone out — the building flips to another event.
 - **8–11am** — Judges score submissions remotely. **Rest, shower, brunch — you've earned it.** (Sunday chill-spot recs pinned in Discord — the City's shut, head to Spitalfields / Brick Lane.)
 - **By 11am** — Top 3 teams called up to demo live. Everyone else: come celebrate.
-- **11:00am–3:00pm — Awards Reception @ St Katharine Cree**
+- **11:30am–3:00pm — Awards Reception @ St Katharine Cree**
   - Top 3 live demos → winners announced
   - 🍷 Wine + coffee · networking with builders, founders & invited guests · livestreamed
   - Optional, but you'll want to be there — it's the party.

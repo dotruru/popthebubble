@@ -19,7 +19,7 @@ _Central London — exact venue shared with confirmed builders_
 ## Sunday 7 June
 
 - **8:00am** — Code freeze & submissions
-- **11:00am–3:00pm — Awards Reception** @ St Katharine Cree
+- **11:30am–3:00pm — Awards Reception** @ St Katharine Cree
   - Top-3 live demos · winners announced · drinks & networking · open to invited guests · livestreamed
 - Closing dinner with the top 3 teams
 
