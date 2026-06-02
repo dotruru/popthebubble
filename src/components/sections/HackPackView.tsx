@@ -19,12 +19,16 @@ import {
   WHAT_TO_BRING,
   HACK_FAQ,
 } from '@/lib/content'
+import { AIRTABLE_EMBEDS } from '@/lib/portal'
+import { AirtableEmbed } from '@/components/AirtableEmbed'
 
 const TABS = [
+  { id: 'checkin', label: 'Check in' },
   { id: 'schedule', label: 'Schedule' },
   { id: 'tracks', label: 'Tracks' },
   { id: 'rules', label: 'Rules' },
   { id: 'judging', label: 'Judging' },
+  { id: 'milestones', label: 'Milestones' },
   { id: 'submit', label: 'Submit' },
   { id: 'prizes', label: 'Prizes' },
   { id: 'food', label: 'Food & Stay' },
@@ -66,7 +70,7 @@ function Bullets({ items }: { items: readonly string[] }) {
 }
 
 export function HackPackView() {
-  const [active, setActive] = useState<TabId>('schedule')
+  const [active, setActive] = useState<TabId>('checkin')
 
   return (
     <section className="section" style={{ paddingTop: 'clamp(2rem, 4vw, 3rem)' }}>
@@ -102,6 +106,18 @@ export function HackPackView() {
         </div>
 
         {/* Panels */}
+        {active === 'checkin' && (
+          <Card>
+            <Heading>Check in</Heading>
+            <p className="body-copy mb-6" style={inkSoft}>
+              Check in first so we know you&apos;re hacking. Name, email, team and track —
+              plus your dev-account handles (GitHub / Vercel / etc.) so sponsors can drop
+              credits on the right accounts.
+            </p>
+            <AirtableEmbed src={AIRTABLE_EMBEDS.checkin} title="Check-in form" />
+          </Card>
+        )}
+
         {active === 'schedule' && (
           <div className="grid gap-4 md:grid-cols-3">
             {SCHEDULE.map((day) => (
@@ -184,15 +200,8 @@ export function HackPackView() {
           </div>
         )}
 
-        {active === 'submit' && (
+        {active === 'milestones' && (
           <div className="grid gap-4 md:grid-cols-2">
-            <Card>
-              <Heading>Your submission</Heading>
-              <Bullets items={SUBMISSION_ITEMS} />
-              <p className="body-copy mt-4" style={ink}>
-                Submit by the <strong>Sun 8:00am</strong> code freeze. Late = not judged.
-              </p>
-            </Card>
             <Card>
               <Heading>Milestones — post as you build</Heading>
               <ul className="flex flex-col gap-3 mb-4">
@@ -209,6 +218,26 @@ export function HackPackView() {
                 Post your progress publicly (LinkedIn, X, a reel — anything). It earns
                 <strong style={ink}> bonus points</strong>, and it&apos;s free distribution for your product. More good posts → more points.
               </p>
+            </Card>
+            <Card>
+              <Heading>Post a milestone update</Heading>
+              <AirtableEmbed src={AIRTABLE_EMBEDS.milestones} title="Milestone update form" />
+            </Card>
+          </div>
+        )}
+
+        {active === 'submit' && (
+          <div className="grid gap-4 md:grid-cols-2">
+            <Card>
+              <Heading>Your submission</Heading>
+              <Bullets items={SUBMISSION_ITEMS} />
+              <p className="body-copy mt-4" style={ink}>
+                Submit by the <strong>Sun 8:00am</strong> code freeze. Late = not judged.
+              </p>
+            </Card>
+            <Card>
+              <Heading>Submit your project</Heading>
+              <AirtableEmbed src={AIRTABLE_EMBEDS.submission} title="Final submission form" />
             </Card>
           </div>
         )}
