@@ -266,9 +266,14 @@ export function HackPackView() {
                             <span
                               className="meta"
                               style={{
-                                flex: '0 0 2.4rem',
-                                textAlign: 'center',
-                                padding: '0.2rem 0.35rem',
+                                flex: '0 0 auto',
+                                alignSelf: 'flex-start',
+                                display: 'inline-flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                minWidth: '1.9rem',
+                                height: '1.9rem',
+                                padding: '0 0.45rem',
                                 borderRadius: '999px',
                                 background: isDQ ? 'rgb(255 74 50 / 0.16)' : 'rgb(32 32 32 / 0.08)',
                                 color: isDQ ? 'var(--vermillion)' : 'var(--ink)',
