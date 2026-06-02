@@ -221,7 +221,10 @@ export function HackPackView() {
             </Card>
             <Card>
               <Heading>Post a milestone update</Heading>
-              <AirtableEmbed src={AIRTABLE_EMBEDS.milestones} title="Milestone update form" />
+              <p className="body-copy mb-4" style={inkSoft}>
+                Same form you&apos;ll use to submit — just pick <strong style={ink}>M1 or M2</strong> as the update type.
+              </p>
+              <AirtableEmbed src={AIRTABLE_EMBEDS.progress} title="Milestone update form" />
             </Card>
           </div>
         )}
@@ -237,7 +240,10 @@ export function HackPackView() {
             </Card>
             <Card>
               <Heading>Submit your project</Heading>
-              <AirtableEmbed src={AIRTABLE_EMBEDS.submission} title="Final submission form" />
+              <p className="body-copy mb-4" style={inkSoft}>
+                Same form as your milestone updates — pick <strong style={ink}>Final submission</strong> as the update type.
+              </p>
+              <AirtableEmbed src={AIRTABLE_EMBEDS.progress} title="Final submission form" />
             </Card>
           </div>
         )}

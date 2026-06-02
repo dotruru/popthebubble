@@ -3,8 +3,10 @@
 // Leave '' to render the "form drops here / see Discord" placeholder.
 export const AIRTABLE_EMBEDS = {
   checkin: '',
-  milestones: '',
-  submission: '',
+  // One repeating form for BOTH milestone updates and the final submission.
+  // Teams fill it multiple times; an "Update type" field (M1 / M2 / M3 / Final
+  // submission) tags each row. Used by both the Milestones and Submit tabs.
+  progress: '',
 } as const
 
 // Gate: the access link shared in Discord is `${origin}/hackpack?k=${PORTAL_ACCESS_TOKEN}`.
