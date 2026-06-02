@@ -8,7 +8,6 @@ import { EVENT, LINKS } from '@/lib/content'
 const NAV_LINKS = [
   { label: 'Tracks', href: '/#tracks', external: false },
   { label: 'Schedule', href: '/schedule', external: false },
-  { label: 'Hack Pack', href: '/hackpack', external: false },
   { label: 'Discord', href: LINKS.discord, external: true },
   { label: 'FAQ', href: '/#faq', external: false },
 ]
