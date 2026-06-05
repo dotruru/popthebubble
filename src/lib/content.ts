@@ -127,7 +127,7 @@ export const JUDGES = [
   { name: 'Kai', initials: 'K', note: '.HW (YC)', photo: '/judges/kai.jpg', linkedin: 'https://www.linkedin.com/in/chihchiangyangkai/' },
   { name: 'Max A', initials: 'MA', note: 'CTO & Co-founder, Zuba', photo: '/judges/max.jpg', linkedin: 'https://uk.linkedin.com/in/mabdulker' },
   { name: 'Viktoria Izdebska', initials: 'VI', note: 'EWOR Fellow', photo: '/judges/viktoria.jpg', linkedin: 'https://www.linkedin.com/in/viktoria-izdebska-42b17618b/' },
-  { name: 'William Yu', initials: 'WY', note: '', photo: '/judges/william.jpg', linkedin: 'https://www.linkedin.com/in/williamqyu/' },
+  { name: 'William Yu', initials: 'WY', note: 'Founder, The Standard Manufacturing Co', photo: '/judges/william.jpg', linkedin: 'https://www.linkedin.com/in/williamqyu/' },
 ] as const
 
 export const COHORT_STATS = [
