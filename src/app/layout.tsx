@@ -22,11 +22,11 @@ export const viewport: Viewport = {
 }
 
 export const metadata: Metadata = {
-  title: 'Pop the Bubble — lambda.run',
+  title: 'Pop the Bubble — Hackhouse London + lambda.run',
   description:
     '80 builders. £10,000. A 36-hour hackathon judged on real-world impact, not slides. London, 5–7 June 2026.',
   openGraph: {
-    title: 'Pop the Bubble — lambda.run',
+    title: 'Pop the Bubble — Hackhouse London + lambda.run',
     description: '80 builders. £10,000. Judged on real-world impact.',
     locale: 'en_GB',
     type: 'website',
