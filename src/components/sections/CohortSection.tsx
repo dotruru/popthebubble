@@ -1,10 +1,19 @@
 'use client'
 
+import { useState } from 'react'
 import Image from 'next/image'
 import { motion } from 'motion/react'
 import { BentoGrid } from '@/components/ui/bento-grid'
 import { GlowingEffect } from '@/components/ui/glowing-effect'
-import { TEAM } from '@/lib/content'
+import { TEAM, JUDGES } from '@/lib/content'
+
+// Monogram backgrounds, cycled across the brand palette
+const JUDGE_GRADIENTS = [
+  'linear-gradient(135deg, rgba(141,204,243,0.9) 0%, rgba(107,177,173,0.9) 100%)',
+  'linear-gradient(135deg, rgba(230,116,142,0.9) 0%, rgba(229,169,169,0.9) 100%)',
+  'linear-gradient(135deg, rgba(140,203,99,0.9) 0%, rgba(107,177,173,0.9) 100%)',
+  'linear-gradient(135deg, rgba(141,204,243,0.9) 0%, rgba(230,116,142,0.85) 100%)',
+]
 
 const TEAM_GRADIENTS = [
   'linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(141,204,243,0.68) 42%, rgba(230,116,142,0.62) 100%)',
@@ -83,6 +92,59 @@ function TeamCard({
       </ul>
       <span className="team-card__linkedin" aria-hidden="true">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
+        </svg>
+      </span>
+    </a>
+  )
+}
+
+function JudgeCard({
+  name,
+  initials,
+  note,
+  photo,
+  linkedin,
+  gradient,
+}: {
+  name: string
+  initials: string
+  note: string
+  photo: string
+  linkedin: string
+  gradient: string
+}) {
+  // Photo hides itself if the file is missing (404), leaving the monogram beneath.
+  const [hasPhoto, setHasPhoto] = useState(false)
+
+  return (
+    <a
+      href={linkedin}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${name} on LinkedIn`}
+      className="judge-card"
+    >
+      <span className="judge-card__monogram" style={{ background: gradient }}>
+        <span className="judge-card__initials" style={{ opacity: hasPhoto ? 0 : 1 }}>
+          {initials}
+        </span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={photo}
+          alt={name}
+          className="judge-card__photo"
+          style={{ opacity: hasPhoto ? 1 : 0 }}
+          onLoad={() => setHasPhoto(true)}
+          onError={() => setHasPhoto(false)}
+        />
+      </span>
+      <div className="judge-card__text">
+        <p className="judge-card__name">{name}</p>
+        {note && <p className="judge-card__note">{note}</p>}
+      </div>
+      <span className="judge-card__linkedin" aria-hidden="true">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
           <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z" />
         </svg>
       </span>
@@ -227,6 +289,22 @@ export function CohortSection() {
               bio={member.bio}
               linkedin={member.linkedin}
               gradient={TEAM_GRADIENTS[i]}
+            />
+          ))}
+        </div>
+
+        {/* Judges */}
+        <p className="meta mb-6 mt-14" style={{ opacity: 0.5 }}>Judges</p>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {JUDGES.map((judge, i) => (
+            <JudgeCard
+              key={judge.name}
+              name={judge.name}
+              initials={judge.initials}
+              note={judge.note}
+              photo={judge.photo}
+              linkedin={judge.linkedin}
+              gradient={JUDGE_GRADIENTS[i % JUDGE_GRADIENTS.length]}
             />
           ))}
         </div>
