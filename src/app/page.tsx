@@ -22,9 +22,9 @@ export default function Home() {
         <MarqueeStrip />
         <TracksSection />
         <CohortSection />
+        <SponsorsSection />
         <TimelineSection />
         <ScheduleSection />
-        <SponsorsSection />
         <FAQSection />
         <FooterLandscape />
       </main>

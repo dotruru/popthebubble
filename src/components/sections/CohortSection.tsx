@@ -156,7 +156,7 @@ export function CohortSection() {
   return (
     <section className="section">
       <div className="container">
-        <h2 className="section-title mb-12">The room.</h2>
+        <h2 className="section-title mb-12">Inside the hackathon.</h2>
 
         <BentoGrid className="max-w-none mx-0 md:grid-cols-5 md:auto-rows-auto gap-4 mb-16">
 
