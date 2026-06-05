@@ -114,8 +114,9 @@ function JudgeCard({
   linkedin: string
   gradient: string
 }) {
-  // Photo hides itself if the file is missing (404), leaving the monogram beneath.
-  const [hasPhoto, setHasPhoto] = useState(false)
+  // Monogram is the base layer; the photo renders on top and only hides if it
+  // fails to load (missing file). No onLoad gate — that races the CDN cache.
+  const [failed, setFailed] = useState(false)
 
   return (
     <a
@@ -126,18 +127,16 @@ function JudgeCard({
       className="judge-card"
     >
       <span className="judge-card__monogram" style={{ background: gradient }}>
-        <span className="judge-card__initials" style={{ opacity: hasPhoto ? 0 : 1 }}>
-          {initials}
-        </span>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={photo}
-          alt={name}
-          className="judge-card__photo"
-          style={{ opacity: hasPhoto ? 1 : 0 }}
-          onLoad={() => setHasPhoto(true)}
-          onError={() => setHasPhoto(false)}
-        />
+        <span className="judge-card__initials">{initials}</span>
+        {!failed && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={photo}
+            alt=""
+            className="judge-card__photo"
+            onError={() => setFailed(true)}
+          />
+        )}
       </span>
       <div className="judge-card__text">
         <p className="judge-card__name">{name}</p>

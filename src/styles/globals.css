@@ -590,7 +590,6 @@ body {
   object-fit: cover;
   object-position: center top;
   filter: grayscale(1);
-  transition: opacity 250ms ease;
 }
 
 .judge-card__text {
