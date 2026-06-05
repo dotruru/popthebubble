@@ -119,12 +119,12 @@ export const TEAM = [
 // fetches, so photos must be saved manually.
 export const JUDGES = [
   { name: 'Luigi Rivolta', initials: 'LR', note: 'Co-founder & CEO, Smartrip', photo: '/judges/luigi.jpg', linkedin: 'https://uk.linkedin.com/in/luigi-rivolta' },
-  { name: 'Alex Tihenko', initials: 'AT', note: '', photo: '/judges/alex.jpg', linkedin: 'https://www.linkedin.com/in/aleksandrs-tihenko/' },
+  { name: 'Alex Tihenko', initials: 'AT', note: '.HW (YC)', photo: '/judges/alex.jpg', linkedin: 'https://www.linkedin.com/in/aleksandrs-tihenko/' },
   { name: 'Gerred Dillon', initials: 'GD', note: 'Frontier AI compute', photo: '/judges/gerred.jpg', linkedin: 'https://www.linkedin.com/in/devgerred/' },
-  { name: 'Henrijs Dandzbergs', initials: 'HD', note: '', photo: '/judges/henrijs.jpg', linkedin: 'https://www.linkedin.com/in/henrijs-dandzbergs-31b278302/' },
-  { name: 'Kai', initials: 'K', note: '', photo: '/judges/kai.jpg', linkedin: 'https://www.linkedin.com/in/chihchiangyangkai/' },
+  { name: 'Henrijs Dandzbergs', initials: 'HD', note: '.HW (YC)', photo: '/judges/henrijs.jpg', linkedin: 'https://www.linkedin.com/in/henrijs-dandzbergs-31b278302/' },
+  { name: 'Kai', initials: 'K', note: '.HW (YC)', photo: '/judges/kai.jpg', linkedin: 'https://www.linkedin.com/in/chihchiangyangkai/' },
   { name: 'Max A', initials: 'MA', note: 'CTO & Co-founder, Zuba', photo: '/judges/max.jpg', linkedin: 'https://uk.linkedin.com/in/mabdulker' },
-  { name: 'Viktoria Izdebska', initials: 'VI', note: '', photo: '/judges/viktoria.jpg', linkedin: 'https://www.linkedin.com/in/viktoria-izdebska-42b17618b/' },
+  { name: 'Viktoria Izdebska', initials: 'VI', note: 'EWOR Fellow', photo: '/judges/viktoria.jpg', linkedin: 'https://www.linkedin.com/in/viktoria-izdebska-42b17618b/' },
   { name: 'William Yu', initials: 'WY', note: '', photo: '/judges/william.jpg', linkedin: 'https://www.linkedin.com/in/williamqyu/' },
 ] as const
 
