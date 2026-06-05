@@ -45,15 +45,28 @@ export function SiteHeaderChrome({ showHackPack }: SiteHeaderChromeProps) {
       }}
     >
       <div className="container flex items-center justify-between py-4">
-        <a
-          href={EVENT.producerHref}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="meta text-white/90 hover:text-white tracking-widest transition-colors"
+        <div
+          className="meta text-white/90 tracking-widest inline-flex items-center gap-1.5"
           style={{ textShadow: navTextShadow }}
         >
-          {EVENT.producer}
-        </a>
+          <a
+            href={EVENT.hostHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            {EVENT.host}
+          </a>
+          <span className="opacity-50">+</span>
+          <a
+            href={EVENT.producerHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-white transition-colors"
+          >
+            {EVENT.producer}
+          </a>
+        </div>
 
         <nav className="hidden md:flex items-center gap-6">
           {navLinks.map((link) => (
