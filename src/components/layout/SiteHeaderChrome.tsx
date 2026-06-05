@@ -49,9 +49,16 @@ export function SiteHeaderChrome({ showHackPack }: SiteHeaderChromeProps) {
           href={EVENT.hostHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="meta text-white/90 hover:text-white tracking-widest transition-colors"
+          className="meta text-white/90 hover:text-white tracking-widest transition-colors inline-flex items-center gap-2"
           style={{ textShadow: navTextShadow }}
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/lambda-run/lambda-logo.svg"
+            alt=""
+            aria-hidden="true"
+            style={{ height: '1.05rem', width: 'auto', filter: 'invert(1)', opacity: 0.95 }}
+          />
           {EVENT.host}
         </a>
 
