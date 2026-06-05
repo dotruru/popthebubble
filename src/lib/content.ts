@@ -1,5 +1,6 @@
 export const EVENT = {
   name: 'Pop the Bubble',
+  host: 'lambda.run',
   producer: 'Hackhouse London',
   edition: 'Issue 01 · Spring 2026',
   dates: '5–7 June 2026',
@@ -10,6 +11,7 @@ export const EVENT = {
   acceptance: '~12%',
   duration: '36 hours',
   producerHref: 'https://hackhouse.uk',
+  hostHref: 'https://lambda.run',
   applyHref: 'https://lu.ma/035ubxn3',
   sponsorHref: 'mailto:contact@hackhouse.uk',
 } as const

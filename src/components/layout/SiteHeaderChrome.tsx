@@ -46,11 +46,13 @@ export function SiteHeaderChrome({ showHackPack }: SiteHeaderChromeProps) {
     >
       <div className="container flex items-center justify-between py-4">
         <a
-          href={EVENT.producerHref}
+          href={EVENT.hostHref}
+          target="_blank"
+          rel="noopener noreferrer"
           className="meta text-white/90 hover:text-white tracking-widest transition-colors"
           style={{ textShadow: navTextShadow }}
         >
-          {EVENT.producer}
+          {EVENT.host}
         </a>
 
         <nav className="hidden md:flex items-center gap-6">

@@ -19,7 +19,15 @@ export function FooterLandscape() {
           </div>
 
           <p className="meta" style={{ opacity: 0.35 }}>
-            Hackhouse London · Issue 01 · 2026
+            Hosted by{' '}
+            <a href={EVENT.hostHref} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
+              {EVENT.host}
+            </a>{' '}
+            · Produced by{' '}
+            <a href={EVENT.producerHref} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
+              {EVENT.producer}
+            </a>{' '}
+            · Issue 01 · 2026
           </p>
         </div>
       </section>
