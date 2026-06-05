@@ -172,6 +172,7 @@ export const SPONSORS = [
   { name: 'Standard Manufacturing Co.', logo: '/sponsor_standardmanufacturing/sponsor_standardmanufacturing.png' },
   { name: 'Cognition', logo: '/sponsor_cognition/Cognition_PrimaryLockup_Black.png' },
   { name: 'Zuba', logo: '/sponsor_zuba/zuba.png' },
+  { name: 'The Residency', logo: '/sponsor_residency/residency.svg' },
 ] as const
 
 export const FAQ_ITEMS = [
