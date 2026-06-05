@@ -46,20 +46,13 @@ export function SiteHeaderChrome({ showHackPack }: SiteHeaderChromeProps) {
     >
       <div className="container flex items-center justify-between py-4">
         <a
-          href={EVENT.hostHref}
+          href={EVENT.producerHref}
           target="_blank"
           rel="noopener noreferrer"
-          className="meta text-white/90 hover:text-white tracking-widest transition-colors inline-flex items-center gap-2"
+          className="meta text-white/90 hover:text-white tracking-widest transition-colors"
           style={{ textShadow: navTextShadow }}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/lambda-run/lambda-logo.svg"
-            alt=""
-            aria-hidden="true"
-            style={{ height: '1.05rem', width: 'auto', filter: 'invert(1)', opacity: 0.95 }}
-          />
-          {EVENT.host}
+          {EVENT.producer}
         </a>
 
         <nav className="hidden md:flex items-center gap-6">

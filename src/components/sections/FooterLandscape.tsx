@@ -18,17 +18,33 @@ export function FooterLandscape() {
             </SponsorDialog>
           </div>
 
-          <p className="meta" style={{ opacity: 0.35 }}>
-            Hosted by{' '}
-            <a href={EVENT.hostHref} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
-              {EVENT.host}
-            </a>{' '}
-            · Produced by{' '}
-            <a href={EVENT.producerHref} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
-              {EVENT.producer}
-            </a>{' '}
-            · Issue 01 · 2026
-          </p>
+          <div className="flex flex-col items-center gap-3">
+            <a
+              href={EVENT.hostHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-100"
+              style={{ opacity: 0.85 }}
+            >
+              <span className="meta" style={{ opacity: 0.5 }}>Hosted by</span>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/lambda-run/lambda-logo.svg"
+                alt={EVENT.host}
+                style={{ height: '1.5rem', width: 'auto' }}
+              />
+              <span style={{ fontWeight: 600, color: 'var(--ink)', letterSpacing: '-0.01em' }}>
+                {EVENT.host}
+              </span>
+            </a>
+            <p className="meta" style={{ opacity: 0.35 }}>
+              Produced by{' '}
+              <a href={EVENT.producerHref} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'underline' }}>
+                {EVENT.producer}
+              </a>{' '}
+              · Issue 01 · 2026
+            </p>
+          </div>
         </div>
       </section>
 
