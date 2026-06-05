@@ -127,12 +127,13 @@ function JudgeCard({
       className="judge-card"
     >
       <span className="judge-card__monogram" style={{ background: gradient }}>
-        <span className="judge-card__initials">{initials}</span>
-        {!failed && (
+        {failed ? (
+          <span className="judge-card__initials">{initials}</span>
+        ) : (
           // eslint-disable-next-line @next/next/no-img-element
           <img
             src={photo}
-            alt=""
+            alt={name}
             className="judge-card__photo"
             onError={() => setFailed(true)}
           />
