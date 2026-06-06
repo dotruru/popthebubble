@@ -7,10 +7,10 @@ LinkedIn blocks automated photo fetching, so these must be saved manually.
 | Judge | Filename |
 |---|---|
 | Luigi Rivolta | luigi.jpg |
-| Alex Tihenko | alex.jpg |
+| Aleksandrs Tihenko | alex.jpg |
 | Gerred Dillon | gerred.jpg |
 | Henrijs Dandzbergs | henrijs.jpg |
-| Kai | kai.jpg |
+| Chih (Kai) Yang | kai.jpg |
 | Max A | max.jpg |
 | Viktoria Izdebska | viktoria.jpg |
 | William Yu | william.jpg |
